@@ -1,3 +1,10 @@
 module.exports = {
-  plugins: [require('../../index')],
+  plugins: [
+    [
+      require('../../index'),
+      {
+        forceConvert: true,
+      },
+    ],
+  ],
 }

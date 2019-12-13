@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "vuepress dev test"
+    "test": "vuepress dev test --no-cache"
   },
   "keywords": [],
   "author": "sqrtthree <imsqrtthree@gmail.com>",
