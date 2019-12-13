@@ -30,3 +30,20 @@ module.exports = {
 
 Home: <const name="HOME" />
 ```
+
+### 4. Options
+
+By default, the content in the code block will not be converted. If you want to use `<const name="YOUR VARIABLE" />` in the code block, you can set `forceConvert: Boolean` to convert it link this:
+
+```js
+module.exports = {
+  plugins: [
+    [
+      'define',
+      {
+        forceConvert: true,
+      },
+    ],
+  ],
+}
+```
