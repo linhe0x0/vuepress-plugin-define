@@ -1,3 +1,5 @@
+[![npm](https://img.shields.io/npm/v/vuepress-plugin-define)](https://www.npmjs.com/package/vuepress-plugin-define)
+
 # vuepress-plugin-define
 
 Bring your configurations from `.env` into VuePress markdown files.
