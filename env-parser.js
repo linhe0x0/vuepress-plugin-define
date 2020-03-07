@@ -9,7 +9,7 @@ const userEnvConfig = dotenv.config()
 dotenvExpand(userEnvConfig)
 
 const parseEnvFileList = envList => {
-  const fileList = ['.env.local']
+  const fileList = ['.env', '.env.local']
 
   _.forEach(envList, item => {
     fileList.push(`.env.${item}`)
@@ -19,9 +19,8 @@ const parseEnvFileList = envList => {
   return fileList
 }
 
-exports.parse = function parse(envList) {
+exports.parse = function parse(cwd, envList) {
   const fileList = parseEnvFileList(envList)
-  const cwd = process.cwd()
 
   const configs = _.map(
     _.filter(

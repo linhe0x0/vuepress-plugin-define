@@ -10,12 +10,13 @@ module.exports = (options, context) => {
     envList.push(process.env.VUEPRESS_ENV)
   }
 
-  envParser.parse(envList)
+  envParser.parse(context.sourceDir, envList)
 
   const pluginConfig = {
     define() {
       return {
-        userDefinedEnvConstants: process.env,
+        globalIsProd: context.isProd,
+        globalUserDefinedEnvConstants: process.env,
       }
     },
     enhanceAppFiles: path.resolve(__dirname, 'enhanceAppFile.js'),

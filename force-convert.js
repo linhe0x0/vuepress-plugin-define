@@ -9,7 +9,11 @@ const convert = md => {
     token.content = _.replace(
       token.content,
       /\<const\sname="(\w+)"\s\/>/g,
-      (matched, name) => process.env[name] || matched
+      (_matched, name) => {
+        const errMsg = `[plugin:define] value of ${this.name} is not defined in env.`
+
+        return process.env[name] || errMsg
+      }
     )
 
     return defaultRender(tokens, idx, options, env, renderer)
