@@ -10,7 +10,7 @@ const convert = md => {
       token.content,
       /\<const\sname="(\w+)"\s\/>/g,
       (_matched, name) => {
-        const errMsg = `[plugin:define] value of ${this.name} is not defined in env.`
+        const errMsg = `[plugin:define] value of ${name} is not defined in env.`
 
         return process.env[name] || errMsg
       }
