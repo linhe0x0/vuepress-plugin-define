@@ -47,4 +47,6 @@ exports.parse = function parse(cwd, envList) {
   _.forEach(_.keys(mergedConfigs), item => {
     process.env[item] = mergedConfigs[item]
   })
+
+  return mergedConfigs
 }
