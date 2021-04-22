@@ -1,6 +1,6 @@
 const _ = require('lodash')
 
-const convert = md => {
+const convert = (md) => {
   const defaultRender = md.renderer.rules.fence
 
   md.renderer.rules.fence = (tokens, idx, options, env, renderer) => {
@@ -20,6 +20,6 @@ const convert = md => {
   }
 }
 
-module.exports = function(md) {
+module.exports = function (md) {
   md.use(convert)
 }

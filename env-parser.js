@@ -8,10 +8,10 @@ const userEnvConfig = dotenv.config()
 
 dotenvExpand(userEnvConfig)
 
-const parseEnvFileList = envList => {
+const parseEnvFileList = (envList) => {
   const fileList = ['.env', '.env.local']
 
-  _.forEach(envList, item => {
+  _.forEach(envList, (item) => {
     fileList.push(`.env.${item}`)
     fileList.push(`.env.${item}.local`)
   })
@@ -24,7 +24,7 @@ exports.parse = function parse(cwd, envList) {
 
   const configs = _.map(
     _.filter(
-      _.map(fileList, item => {
+      _.map(fileList, (item) => {
         const filePath = path.resolve(cwd, item)
 
         let content = ''
@@ -35,16 +35,16 @@ exports.parse = function parse(cwd, envList) {
 
         return content
       }),
-      item => item.length
+      (item) => item.length
     ),
-    item => {
+    (item) => {
       return dotenv.parse(item)
     }
   )
 
   const mergedConfigs = _.assign({}, ...configs)
 
-  _.forEach(_.keys(mergedConfigs), item => {
+  _.forEach(_.keys(mergedConfigs), (item) => {
     process.env[item] = mergedConfigs[item]
   })
 
