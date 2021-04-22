@@ -25,12 +25,23 @@ module.exports = {
 }
 ```
 
-### 3. Write your contents
+### 3. Use variables
+
+By default, the variable will be replaced with the value of the environment variable, you can also create a `.env` related file to customize the value of the variable.
 
 ```
 # Example
 
 Home: <const name="HOME" />
+```
+
+You can specify env variables by placing the following files in your project root, same with [vue-cli](https://cli.vuejs.org/guide/mode-and-env.html#environment-variables):
+
+```
+.env                # loaded in all cases
+.env.local          # loaded in all cases, ignored by git
+.env.[mode]         # only loaded in specified mode
+.env.[mode].local   # only loaded in specified mode, ignored by git
 ```
 
 ### 4. Options
